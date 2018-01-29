@@ -1,6 +1,11 @@
 language: android
+sudo: required
+dist: precise
 android:
   components:
+    - tools
+    - platform-tool
+    
     # The BuildTools version used by your project
     - build-tools-26.0.1
 
@@ -8,4 +13,19 @@ android:
     - android-25
 
     # Emulator image
-    - sys-img-armeabi-v7a-android-25
+    # - sys-img-x86_64-google_apis-25
+    
+    # Extras
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - extra-android-support
+
+script:
+  - ./gradlew build
+
+before_install:
+  - chmod +x gradlew
+
+cache:
+  directories:
+    - $HOME/.gradle
