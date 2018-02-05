@@ -1,8 +1,5 @@
 language: android
 sudo: required
-before_install:
-  - yes | sdkmanager "platforms;android-27"
-  - chmod +x gradlew
 dist: precise
 android:
   components:
