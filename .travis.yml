@@ -1,4 +1,7 @@
 language: android
+branches:
+  only:
+    master
 sudo: required
 dist: precise
 android:
