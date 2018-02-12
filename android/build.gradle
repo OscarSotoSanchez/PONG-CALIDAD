@@ -81,7 +81,7 @@ task run(type: Exec) {
     commandLine "${adb}", 'shell', 'am', 'start', '-n', 'com.mygdx.pong/com.mygdx.pong.AndroidLauncher'
 }
 
-task debugRunOnPhone(group: "android", description: "Building and deploying to connected android device on USB debugging mode") {
+task debugRunOnPhone(group: "android", description: "Building and deploying to connected android device on USB debugging mode") << {
     doFirst {
         println("Installing and executing on connected android phone!")
     }
@@ -89,26 +89,31 @@ task debugRunOnPhone(group: "android", description: "Building and deploying to c
     dependsOn ':android:run'
 }
 
-task updateBranch(type: Exec, group: "Git", description: "Update current branch from repo") {
-    //Done this way so it shows up above the fetch command
-    println("Updating branch from repo!")
-    commandLine("git", 'pull', '-p', '--commit')
-}
-
-task pushToCurrentBranch(type: Exec, group: "Git", description: "Pushes to same branch on origin, or creates it") {
-    println("Commiting and Pushing to origin")
-    commandLine("git","add",".")
-    //commandLine("git","commit","-m","Commit made by gradle task")
-    //commandLine("git", 'push', '--progress')
-}
-
-task updateBranch_Compile_Push(type: Exec, group: "Git", description: "Pushes to same branch on origin, or creates it") {
-    doFirst {
-        println("Pushing to origin with other changes fetched after build and test passed")
+task updateBranch(group: "Git", description: "Update current branch from repo") << {
+    exec {
+        println("Updating branch from repo!")
+        commandLine("git", "pull")
     }
-    dependsOn 'updateBranch'
-    dependsOn 'build'
-    dependsOn 'pushToCurrentBranch'
+}
+task commitFiles(group: "Git", description: "Creates commit with all changes") << {
+    exec {
+        commandLine("git", "commit", "-a", "-m", "Commit made by gradle task")
+        println("Commit created!")
+    }
+}
+task pushToCurrentBranch(group: "Git", description: "Pushes to same branch on origin, or creates it") << {
+    exec {
+        commandLine("git", "push", "--progress")
+        println("Push made!")
+    }
+}
+task updateBranch_Compile_Push(
+        group: "Git",
+        description: "Pushes to same branch on origin, or creates it",
+        dependsOn: ['updateBranch', 'build', 'commitFiles', 'pushToCurrentBranch']) {
+    build.mustRunAfter updateBranch
+    commitFiles.mustRunAfter build
+    pushToCurrentBranch.mustRunAfter commitFiles
 }
 
 // sets up the Android Eclipse project, using the old Ant based build.
