@@ -99,7 +99,7 @@ task updateBranch(group: "Git", description: "Update current branch from repo") 
 }
 task commitFiles(group: "Git", description: "Creates commit with all changes") << {
     exec {
-        commandLine("git", "commit", "-a", "-m", "AutoCommit made by gradle task on " + new Date(System.currentTimeMillis()).toString())
+        commandLine("git", "commit", "-a", "-m", "AutoCommit made by gradle task on " + new Date(System.currentTimeMillis()).toTimestamp())
         println("Commit created!")
     }
 }
