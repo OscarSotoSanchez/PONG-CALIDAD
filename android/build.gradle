@@ -83,7 +83,7 @@ task run(type: Exec) {
     commandLine "${adb}", 'shell', 'am', 'start', '-n', 'com.mygdx.pong/com.mygdx.pong.AndroidLauncher'
 }
 
-task debugRunOnPhone(group: "android", description: "Building and deploying to connected android device on USB debugging mode") << {
+task debugRunOnPhone(group: "android", description: "Building and deploying to connected android device on USB debugging mode") {
     doFirst {
         println("Installing and executing on connected android phone!")
     }
