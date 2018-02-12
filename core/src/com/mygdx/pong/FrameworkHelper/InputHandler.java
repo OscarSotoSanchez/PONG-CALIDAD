@@ -48,7 +48,7 @@ public class InputHandler implements InputProcessor,GestureDetector.GestureListe
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 
-        if(button == 1) {
+        if(Gdx.input.isTouched(1)) {
 
             Ball b = new Ball( (int) myPaddle.getX(), (int) myPaddle.getY(), 2, screenHeight, screenWidth );
             b.setBullet( true );
@@ -66,7 +66,7 @@ public class InputHandler implements InputProcessor,GestureDetector.GestureListe
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 
 
-        if(button == 0) {
+        if(!Gdx.input.isTouched(1) && button == 0) {
             this.myPaddle.setY( screenY );
             this.myPaddle.setX( screenX );
         }

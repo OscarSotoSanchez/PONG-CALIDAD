@@ -32,11 +32,10 @@ android {
     }
 }
 
-
 // called every time gradle gets executed, takes the native dependencies of
 // the natives configuration, and extracts them to the proper libs/ folders
 // so they get packed with the APK.
-task copyAndroidNatives() { 
+task copyAndroidNatives() {
     file("libs/armeabi/").mkdirs()
     file("libs/armeabi-v7a/").mkdirs()
     file("libs/arm64-v8a/").mkdirs()
@@ -45,12 +44,12 @@ task copyAndroidNatives() {
 
     configurations.natives.files.each { jar ->
         def outputDir = null
-        if(jar.name.endsWith("natives-arm64-v8a.jar")) outputDir = file("libs/arm64-v8a")
-        if(jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")        
-        if(jar.name.endsWith("natives-armeabi.jar")) outputDir = file("libs/armeabi")
-        if(jar.name.endsWith("natives-x86_64.jar")) outputDir = file("libs/x86_64")
-        if(jar.name.endsWith("natives-x86.jar")) outputDir = file("libs/x86")
-        if(outputDir != null) {
+        if (jar.name.endsWith("natives-arm64-v8a.jar")) outputDir = file("libs/arm64-v8a")
+        if (jar.name.endsWith("natives-armeabi-v7a.jar")) outputDir = file("libs/armeabi-v7a")
+        if (jar.name.endsWith("natives-armeabi.jar")) outputDir = file("libs/armeabi")
+        if (jar.name.endsWith("natives-x86_64.jar")) outputDir = file("libs/x86_64")
+        if (jar.name.endsWith("natives-x86.jar")) outputDir = file("libs/x86")
+        if (outputDir != null) {
             copy {
                 from zipTree(jar)
                 into outputDir
@@ -82,14 +81,36 @@ task run(type: Exec) {
     commandLine "${adb}", 'shell', 'am', 'start', '-n', 'com.mygdx.pong/com.mygdx.pong.AndroidLauncher'
 }
 
-task debugRunOnPhone(group: "1.Custom", description: "Building and deploying to connected android device on USB debugging mode"){
-    println("#debugRunOnAndroid")
+task debugRunOnPhone(group: "android", description: "Building and deploying to connected android device on USB debugging mode") {
+    doFirst {
+        println("Installing and executing on connected android phone!")
+    }
     dependsOn 'installDebug'
     dependsOn ':android:run'
-    doLast{
-        println("Installed on android!")
-    }
 }
+
+task updateBranch(type: Exec, group: "Git", description: "Update current branch from repo") {
+    //Done this way so it shows up above the fetch command
+    println("Updating branch from repo!")
+    commandLine("git", 'pull', '-p', '--commit')
+}
+
+task pushToCurrentBranch(type: Exec, group: "Git", description: "Pushes to same branch on origin, or creates it") {
+    println("Commiting and Pushing to origin")
+    commandLine("git","add",".")
+    //commandLine("git","commit","-m","Commit made by gradle task")
+    //commandLine("git", 'push', '--progress')
+}
+
+task updateBranch_Compile_Push(type: Exec, group: "Git", description: "Pushes to same branch on origin, or creates it") {
+    doFirst {
+        println("Pushing to origin with other changes fetched after build and test passed")
+    }
+    dependsOn 'updateBranch'
+    dependsOn 'build'
+    dependsOn 'pushToCurrentBranch'
+}
+
 // sets up the Android Eclipse project, using the old Ant based build.
 eclipse {
     // need to specify Java source sets explicitly, SpringSource Gradle Eclipse plugin
@@ -106,8 +127,8 @@ eclipse {
     }
 
     classpath {
-        plusConfigurations += [ project.configurations.compile ]        
-        containers 'com.android.ide.eclipse.adt.ANDROID_FRAMEWORK', 'com.android.ide.eclipse.adt.LIBRARIES'       
+        plusConfigurations += [project.configurations.compile]
+        containers 'com.android.ide.eclipse.adt.ANDROID_FRAMEWORK', 'com.android.ide.eclipse.adt.LIBRARIES'
     }
 
     project {
@@ -125,7 +146,7 @@ eclipse {
 idea {
     module {
         sourceDirs += file("src")
-        scopes = [ COMPILE: [plus:[project.configurations.compile]]]        
+        scopes = [COMPILE: [plus: [project.configurations.compile]]]
 
         iml {
             withXml {
@@ -135,7 +156,7 @@ idea {
                 builder.component(name: "FacetManager") {
                     facet(type: "android", name: "Android") {
                         configuration {
-                            option(name: "UPDATE_PROPERTY_FILES", value:"true")
+                            option(name: "UPDATE_PROPERTY_FILES", value: "true")
                         }
                     }
                 }
