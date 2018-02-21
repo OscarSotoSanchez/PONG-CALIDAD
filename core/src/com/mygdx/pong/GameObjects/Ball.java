@@ -1,8 +1,6 @@
 package com.mygdx.pong.GameObjects;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
-
 
 
 /**
@@ -20,12 +18,11 @@ public class Ball {
     private boolean impacted = true;
 
 
-
     //metodos
 
-    public Ball(int x, int y, int size, int screenHeight, int screenWidth){
+    public Ball(int x, int y, int size, int screenHeight, int screenWidth) {
         this.position = new Vector2(x, y);
-        this.velocity = new Vector2(110,110);
+        this.velocity = new Vector2(110, 110);
         this.size = size;
         this.screenHeight = screenHeight;
         this.screenWidth = screenWidth;
@@ -43,8 +40,17 @@ public class Ball {
         return position.x;
     }
 
+    //setters de las coordenadas X e Y del vector position, necesarias para resetear posicion de la bola al salir del campo
+    public void setX(int x) {
+        this.position.x = x;
+    }
+
     public float getY() {
         return position.y;
+    }
+
+    public void setY(int y) {
+        this.position.y = y;
     }
 
     public int getSize() {
@@ -67,72 +73,57 @@ public class Ball {
         }  */
 
 
-
-            if ((this.position.y > 0)) {
-                if (this.velocity.y < 0) {
-                    position.add( velocity.cpy().scl( delta ) );
-                }
-            } else {
-                this.position.y = screenHeight;
-                this.velocity.y = -this.velocity.y;
-
-                position.add( velocity.cpy().scl( delta ) );
+        if ((this.position.y > 0)) {
+            if (this.velocity.y < 0) {
+                position.add(velocity.cpy().scl(delta));
             }
+        } else {
+            this.position.y = screenHeight;
+            this.velocity.y = -this.velocity.y;
 
-
-            if ((this.position.x > 0)) {
-                if (this.velocity.x < 0) {
-                    position.add( velocity.cpy().scl( delta ) );
-                }
-            } else {
-                this.position.x = screenWidth;
-                this.velocity.x = -this.velocity.x;
-
-                position.add( velocity.cpy().scl( delta ) );
-            }
-
-            if ((this.position.y + this.size < this.screenHeight)) {
-                if (this.velocity.y > 0) {
-                    position.add( velocity.cpy().scl( delta ) );
-                }
-            } else {
-                if(!isBullet) {
-                    this.position.y = 0;
-                    this.isCube = !this.isCube;
-                    position.add( velocity.cpy().scl( delta ) );
-                }
-
-            }
-
-            if ((this.position.x + this.size < this.screenWidth)) {
-                if (this.velocity.x > 0) {
-                    position.add( velocity.cpy().scl( delta ) );
-                }
-            } else {
-                if(!isBullet) {
-                    this.position.x = 0;
-                    this.isCube = !this.isCube;
-                    position.add( velocity.cpy().scl( delta ) );
-                }
-                else{
-                    impacted = false;
-                }
-
-            }
+            position.add(velocity.cpy().scl(delta));
         }
 
 
+        if ((this.position.x > 0)) {
+            if (this.velocity.x < 0) {
+                position.add(velocity.cpy().scl(delta));
+            }
+        } else {
+            this.position.x = screenWidth;
+            this.velocity.x = -this.velocity.x;
 
+            position.add(velocity.cpy().scl(delta));
+        }
 
-    //setters de las coordenadas X e Y del vector position, necesarias para resetear posicion de la bola al salir del campo
-    public void setX(int x){
-        this.position.x = x;
+        if ((this.position.y + this.size < this.screenHeight)) {
+            if (this.velocity.y > 0) {
+                position.add(velocity.cpy().scl(delta));
+            }
+        } else {
+            if (!isBullet) {
+                this.position.y = 0;
+                this.isCube = !this.isCube;
+                position.add(velocity.cpy().scl(delta));
+            }
+
+        }
+
+        if ((this.position.x + this.size < this.screenWidth)) {
+            if (this.velocity.x > 0) {
+                position.add(velocity.cpy().scl(delta));
+            }
+        } else {
+            if (!isBullet) {
+                this.position.x = 0;
+                this.isCube = !this.isCube;
+                position.add(velocity.cpy().scl(delta));
+            } else {
+                impacted = false;
+            }
+
+        }
     }
-
-    public void setY(int y){
-        this.position.y = y;
-    }
-
 
     public void setVelocity(Vector2 velocity) {
         this.velocity = velocity;
@@ -150,7 +141,8 @@ public class Ball {
     public boolean isImpacted() {
         return impacted;
     }
-    public void collider (){
+
+    public void collider() {
 
         this.velocity.x = -this.velocity.x;
         this.velocity.y = -this.velocity.y;

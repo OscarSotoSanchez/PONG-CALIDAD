@@ -1,5 +1,5 @@
 package com.mygdx.pong.FrameworkHelper;
-import com.badlogic.gdx.ApplicationListener;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.input.GestureDetector;
@@ -14,7 +14,7 @@ import com.mygdx.pong.GameObjects.Paddle;
  * Created by fonyc on 11/10/2017.
  */
 
-public class InputHandler implements InputProcessor,GestureDetector.GestureListener {
+public class InputHandler implements InputProcessor, GestureDetector.GestureListener {
 
     private List<Paddle> paddleList;
     private Paddle myPaddle;
@@ -23,7 +23,7 @@ public class InputHandler implements InputProcessor,GestureDetector.GestureListe
     private GameWorld world;
 
     //metodos
-    public InputHandler(GameWorld myWorld, Paddle myPaddle, int screenWidth, int screenHeight){
+    public InputHandler(GameWorld myWorld, Paddle myPaddle, int screenWidth, int screenHeight) {
         this.screenHeight = screenHeight;
         this.screenWidth = screenWidth;
         this.myPaddle = myPaddle;
@@ -48,27 +48,26 @@ public class InputHandler implements InputProcessor,GestureDetector.GestureListe
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 
-        if(Gdx.input.isTouched(1)) {
+        if (Gdx.input.isTouched(1)) {
 
-            Ball b = new Ball( (int) myPaddle.getX(), (int) myPaddle.getY(), 2, screenHeight, screenWidth );
-            b.setBullet( true );
-            b.setVelocity( new Vector2( 1000, 0 ) );
-            world.setBullet( b );
+            Ball b = new Ball((int) myPaddle.getX(), (int) myPaddle.getY(), 2, screenHeight, screenWidth);
+            b.setBullet(true);
+            b.setVelocity(new Vector2(1000, 0));
+            world.setBullet(b);
 
         }
 
 
-
-
-        return true;    }
+        return true;
+    }
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 
 
-        if(!Gdx.input.isTouched(1) && button == 0) {
-            this.myPaddle.setY( screenY );
-            this.myPaddle.setX( screenX );
+        if (!Gdx.input.isTouched(1) && button == 0) {
+            this.myPaddle.setY(screenY);
+            this.myPaddle.setX(screenX);
         }
         return true;
 
@@ -76,8 +75,6 @@ public class InputHandler implements InputProcessor,GestureDetector.GestureListe
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-
-
 
 
         return true;

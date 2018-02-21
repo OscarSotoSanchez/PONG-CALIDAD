@@ -20,19 +20,19 @@ public class GameScreen implements Screen {
     private Skin skin;
 
     private Game game;
+
     public GameScreen(Game game) {
         this.game = game;
 
         float screenWidth = Gdx.graphics.getWidth();
         float screenHeight = Gdx.graphics.getHeight();
 
-        world = new GameWorld((int)screenWidth, (int)screenHeight, game);
+        world = new GameWorld((int) screenWidth, (int) screenHeight, game);
 
-        renderer = new GameRenderer(world, (int)screenWidth, (int)screenHeight);
+        renderer = new GameRenderer(world, (int) screenWidth, (int) screenHeight);
 
 
-
-            Gdx.input.setInputProcessor(new InputHandler(world,world.getPaddle1(), (int) screenWidth, (int) screenHeight));
+        Gdx.input.setInputProcessor(new InputHandler(world, world.getPaddle1(), (int) screenWidth, (int) screenHeight));
 
     }
 
@@ -50,7 +50,6 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
-
 
 
     }
