@@ -3,7 +3,7 @@ branches:
   only:
     master
 sudo: required
-dist: precise
+dist: trusty
 android:
   components:
     - tools
@@ -16,7 +16,7 @@ android:
     - android-25
 
     # Emulator image
-    # - sys-img-x86_64-google_apis-25
+    - sys-img-x86_64-google_apis-25
     
     # Extras
     - extra-android-m2repository
@@ -25,8 +25,17 @@ android:
 
 # Emulator Management: Create, Start and Wait
 
+addons:
+  sonarcloud:
+    organization: "calidad_software" # Organization Key
+    token:
+      secure: $SONAR_TOKEN # Sonar Token
+    branches:
+      - master
+
 script:
   - ./gradlew build
+  - ./gradlew sonarqube
 
 cache:
   directories:
