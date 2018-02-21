@@ -18,19 +18,29 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class GameOverScreen implements Screen {
 
-    private Game game;
-    private OrthographicCamera cam;
-    private ShapeRenderer shapeRenderer;
-    private SpriteBatch batcher ;
     Stage stage;
     TextButton button;
     TextButton.TextButtonStyle textButtonStyle;
     BitmapFont font;
     Skin skin;
     TextureAtlas buttonAtlas;
+    private Game game;
+    private OrthographicCamera cam;
+    private ShapeRenderer shapeRenderer;
+    private SpriteBatch batcher;
     private float screenWidth;
-    private  float screenHeight;
+    private float screenHeight;
 
+
+    public GameOverScreen(Game game) {
+        this.game = game;
+        screenWidth = Gdx.graphics.getWidth();
+        screenHeight = Gdx.graphics.getHeight();
+        create();
+        render();
+
+
+    }
 
     public void create() {
         font = new BitmapFont();
@@ -42,9 +52,8 @@ public class GameOverScreen implements Screen {
 
 
         //el batcher permite renderizar objetos separados de la renderizacion global
-        this.batcher = new SpriteBatch(  );
-        this.batcher.setProjectionMatrix( cam.combined );
-
+        this.batcher = new SpriteBatch();
+        this.batcher.setProjectionMatrix(cam.combined);
 
 
         batcher.begin();
@@ -52,17 +61,6 @@ public class GameOverScreen implements Screen {
 
         font.draw(batcher, "ENHORABUENA HAS GANADO!", 10, 10);
         batcher.end();
-
-    }
-    public GameOverScreen(Game game) {
-        this.game = game;
-         screenWidth = Gdx.graphics.getWidth();
-         screenHeight = Gdx.graphics.getHeight();
-         create();
-         render();
-
-
-
 
     }
 

@@ -16,14 +16,6 @@ public class Paddle {
 
     //METODOS
 
-    public Vector2 getPosition() {
-        return position;
-    }
-
-    public Vector2 getVelocity() {
-        return velocity;
-    }
-
     public Paddle(float x, float y, int width, int height, int screenHeight, int screenWidth) {
         this.width = width;
         this.height = height;
@@ -32,6 +24,19 @@ public class Paddle {
         this.screenHeight = screenHeight;
         this.screenWidth = screenWidth;
     }
+
+    public Vector2 getPosition() {
+        return position;
+    }
+
+    public Vector2 getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(Vector2 velocity) {
+        this.velocity = velocity;
+    }
+
     public void update(float delta) {
 
 /*
@@ -73,37 +78,37 @@ public class Paddle {
         }
 
     }  */
-       if((this.position.y > 0)) {
+        if ((this.position.y > 0)) {
             if (this.velocity.y < 0) {
                 position.add(velocity.cpy().scl(delta));
             }
         }
 
-        if((this.position.y+this.height < this.screenHeight)) {
+        if ((this.position.y + this.height < this.screenHeight)) {
             if (this.velocity.y > 0) {
                 position.add(velocity.cpy().scl(delta));
             }
         }
     }
 
-    public void onRelease(){
+    public void onRelease() {
         velocity.y = 0; //Cuado suelte el paddle, solo le pongo la velocidad Y a 0, porque solo se mueve verticalmente
     }
 
-
-    public void setX(int x){
-        this.position.x = x;
-    }
-
-    public void setY(int y){
-        this.position.y = y;
-    }
     public float getX() {
         return position.x;
     }
 
+    public void setX(int x) {
+        this.position.x = x;
+    }
+
     public float getY() {
         return position.y;
+    }
+
+    public void setY(int y) {
+        this.position.y = y;
     }
 
     public float getWidth() {
@@ -114,14 +119,9 @@ public class Paddle {
         return height;
     }
 
-    public void collider (){
+    public void collider() {
 
         this.velocity.x = -this.velocity.x;
         this.velocity.y = -this.velocity.y;
-    }
-
-
-    public void setVelocity(Vector2 velocity) {
-        this.velocity = velocity;
     }
 }

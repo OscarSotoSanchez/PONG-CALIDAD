@@ -3,10 +3,6 @@ package com.mygdx.pong.Game;
 import com.badlogic.gdx.Game;
 import com.mygdx.pong.Screens.GameScreen;
 
-import java.awt.Button;
-
-import javax.swing.ButtonModel;
-
 import static java.lang.System.exit;
 
 /**
@@ -19,7 +15,8 @@ public class GamePong extends Game {
         setScreen(new GameScreen(this));
 
     }
-    public void end(){
+
+    public void end() {
 
         exit(0);
 
