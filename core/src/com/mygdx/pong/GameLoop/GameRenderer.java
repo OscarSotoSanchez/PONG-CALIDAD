@@ -98,7 +98,7 @@ public class GameRenderer {
         if (!this.myWorld.getBall().isCube())
             shapeRenderer.circle(myWorld.getBall().getX(), myWorld.getBall().getY(), myWorld.getBall().getSize());
         else
-            shapeRenderer.rect(myWorld.getBall().getX(), myWorld.getBall().getY(), myWorld.getBall().getSize() + 5, myWorld.getBall().getSize() + 5);
+            shapeRenderer.rect(myWorld.getBall().getX(), myWorld.getBall().getY(), myWorld.getBall().getSize() + 5F, myWorld.getBall().getSize() + 5F);
 
         if (myWorld.getBullet() != null) {
 
