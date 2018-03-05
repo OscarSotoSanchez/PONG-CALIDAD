@@ -16,7 +16,7 @@ import com.mygdx.pong.GameObjects.Paddle;
 
 public class InputHandler implements InputProcessor, GestureDetector.GestureListener {
 
-    private List<Paddle> paddleList;
+
     private Paddle myPaddle;
     private int screenWidth;
     private int screenHeight;

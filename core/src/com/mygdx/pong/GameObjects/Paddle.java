@@ -12,17 +12,17 @@ public class Paddle {
     private int width;
     private int height;
     private int screenHeight;
-    private int screenWidth;
+
 
     //METODOS
 
-    public Paddle(float x, float y, int width, int height, int screenHeight, int screenWidth) {
+    public Paddle(float x, float y, int width, int height, int screenHeight) {
         this.width = width;
         this.height = height;
         this.position = new Vector2(x, y);
         this.velocity = new Vector2(0, 0);
         this.screenHeight = screenHeight;
-        this.screenWidth = screenWidth;
+
     }
 
     public Vector2 getPosition() {

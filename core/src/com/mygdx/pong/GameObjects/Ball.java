@@ -59,20 +59,6 @@ public class Ball {
 
     public void update(float delta) {
 
-
-       /* if((this.position.y > 0)) {
-            if (this.velocity.y < 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        }
-
-        if((this.position.y+this.size < this.screenHeight)) {
-            if (this.velocity.y > 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        }  */
-
-
         if ((this.position.y > 0)) {
             if (this.velocity.y < 0) {
                 position.add(velocity.cpy().scl(delta));

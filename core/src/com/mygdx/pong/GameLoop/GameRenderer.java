@@ -20,10 +20,7 @@ public class GameRenderer {
     private GameWorld myWorld;
     private OrthographicCamera cam;
     private ShapeRenderer shapeRenderer;
-    private Timer timer = new Timer();
     private SpriteBatch batcher;
-    private Stage stage;
-    private Skin skin = new Skin();
 
     //EXPLICACION: Clase que se encarga de renderizar los objetos
 
