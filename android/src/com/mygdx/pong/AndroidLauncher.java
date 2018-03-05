@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.mygdx.pong.Game.GamePong;
+import com.mygdx.pong.game.GamePong;
 
 
 public class AndroidLauncher extends AndroidApplication {
