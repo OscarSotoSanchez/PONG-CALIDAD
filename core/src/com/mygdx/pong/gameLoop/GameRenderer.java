@@ -17,10 +17,9 @@ public class GameRenderer {
     private GameWorld myWorld;
     private OrthographicCamera cam;
     private ShapeRenderer shapeRenderer;
-    private Timer timer = new Timer();
+
     private SpriteBatch batcher;
-    private Stage stage;
-    private Skin skin = new Skin();
+
 
     //EXPLICACION: Clase que se encarga de renderizar los objetos
 
@@ -41,31 +40,6 @@ public class GameRenderer {
         shapeRenderer.setProjectionMatrix(cam.combined);
     }
 
-  /*  public void postRunnable(){
-        Gdx.app.postRunnable(new Runnable() {
-            @Override
-            public void run(){
-
-
-                timer();
-                render();
-
-            }
-        });
-    }
-
-    public void timer(){
-
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-
-                myWorld.addPaddle();
-
-            }
-        }, 10*1000, 10*1000);
-    }
-*/
 
 
     public void render() {

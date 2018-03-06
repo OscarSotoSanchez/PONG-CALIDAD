@@ -15,20 +15,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class GameOverScreen implements Screen {
 
-    Stage stage;
-    TextButton button;
-    TextButton.TextButtonStyle textButtonStyle;
+
     BitmapFont font;
-    Skin skin;
-    TextureAtlas buttonAtlas;
-    private Game game;
-    private ShapeRenderer shapeRenderer;
+
     private float screenWidth;
     private float screenHeight;
 
 
     public GameOverScreen(Game game) {
-        this.game = game;
+
         screenWidth = Gdx.graphics.getWidth();
         screenHeight = Gdx.graphics.getHeight();
         create();

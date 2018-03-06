@@ -9,17 +9,17 @@ public class Paddle {
     private int width;
     private int height;
     private int screenHeight;
-    private int screenWidth;
+
 
     //METODOS
 
-    public Paddle(float x, float y, int width, int height, int screenHeight, int screenWidth) {
+    public Paddle(float x, float y, int width, int height, int screenHeight) {
         this.width = width;
         this.height = height;
         this.position = new Vector2(x, y);
         this.velocity = new Vector2(0, 0);
         this.screenHeight = screenHeight;
-        this.screenWidth = screenWidth;
+
     }
 
     public Vector2 getPosition() {
@@ -35,46 +35,6 @@ public class Paddle {
     }
 
     public void update(float delta) {
-
-/*
-        if((this.position.y> 0)) {
-            if (this.velocity.y < 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        }else{
-            this.velocity.y = -this.velocity.y;
-            position.add(velocity.cpy().scl(delta));
-        }
-
-
-        if((this.position.x> 0)) {
-            if (this.velocity.x < 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        }else{
-            this.velocity.x = -this.velocity.x;
-            position.add(velocity.cpy().scl(delta));
-        }
-
-        if((this.position.y+this.height < this.screenHeight)) {
-            if (this.velocity.y > 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        }else{
-            this.velocity.y = -this.velocity.y;
-            position.add(velocity.cpy().scl(delta));
-        }
-
-        if((this.position.x+this.width < this.screenWidth)) {
-            if (this.velocity.x > 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        }else{
-            this.velocity.x = -this.velocity.x;
-            position.add(velocity.cpy().scl(delta));
-        }
-
-    }  */
         if ((this.position.y > 0)) {
             if (this.velocity.y < 0) {
                 position.add(velocity.cpy().scl(delta));

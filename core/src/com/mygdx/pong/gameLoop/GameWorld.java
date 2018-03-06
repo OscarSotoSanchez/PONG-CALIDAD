@@ -21,20 +21,19 @@ import static java.lang.System.exit;
 public class GameWorld {
     int screenWidth;
     int screenHeight;
-    String yourScoreName;
-    BitmapFont yourBitmapFontName;
+
     boolean impacted = false;
     //esta clase se encarga de refrescar los objetos del mundo
     private Paddle paddle1;
     private List<Paddle> paddleList = new ArrayList<>();
     private Ball ball;
     private Paddle paddle;
-    private TextField crono;
+
     private List<Color> ballColors;
     private Color colors = Color.GOLD;
     private int colorNumber = 0;
     private int vidas = 5;
-    private int score;
+
     private Game game;
     private Ball bullet;
 
