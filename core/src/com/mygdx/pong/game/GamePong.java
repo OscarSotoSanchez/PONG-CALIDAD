@@ -1,7 +1,7 @@
-package com.mygdx.pong.game;
+package com.mygdx.pong.Game;
 
 import com.badlogic.gdx.Game;
-import com.mygdx.pong.screens.GameScreen;
+import com.mygdx.pong.Screens.GameScreen;
 
 import static java.lang.System.exit;
 

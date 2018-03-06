@@ -1,13 +1,14 @@
-package com.mygdx.pong.screens;
+package com.mygdx.pong.Screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.mygdx.pong.frameworkHelper.InputHandler;
-import com.mygdx.pong.gameLoop.GameRenderer;
-import com.mygdx.pong.gameLoop.GameWorld;
+import com.mygdx.pong.FrameworkHelper.InputHandler;
+import com.mygdx.pong.GameLoop.GameRenderer;
+import com.mygdx.pong.GameLoop.GameWorld;
+
 
 public class GameScreen implements Screen {
     private GameWorld world;
