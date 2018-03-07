@@ -3,11 +3,9 @@ package com.mygdx.pong.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.mygdx.pong.frameworkHelper.InputHandler;
-import com.mygdx.pong.gameLoop.GameRenderer;
-import com.mygdx.pong.gameLoop.GameWorld;
+import com.mygdx.pong.frameworkhelper.InputHandler;
+import com.mygdx.pong.gameloop.GameRenderer;
+import com.mygdx.pong.gameloop.GameWorld;
 
 
 public class GameScreen implements Screen {
@@ -44,8 +42,6 @@ public class GameScreen implements Screen {
     @Override
     public void hide() {
         Gdx.app.log("GameScreen", "hide called");
-        Stage stage = null;
-        Skin skin = null;
     }
 
     @Override

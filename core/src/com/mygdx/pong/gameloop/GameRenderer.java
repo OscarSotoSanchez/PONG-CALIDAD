@@ -1,4 +1,4 @@
-package com.mygdx.pong.gameLoop;
+package com.mygdx.pong.gameloop;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

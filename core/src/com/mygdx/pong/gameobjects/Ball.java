@@ -1,4 +1,4 @@
-package com.mygdx.pong.gameObjects;
+package com.mygdx.pong.gameobjects;
 
 import com.badlogic.gdx.math.Vector2;
 

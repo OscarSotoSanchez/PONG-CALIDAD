@@ -1,12 +1,12 @@
-package com.mygdx.pong.gameLoop;
+package com.mygdx.pong.gameloop;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
-import com.mygdx.pong.gameObjects.Ball;
-import com.mygdx.pong.gameObjects.Paddle;
+import com.mygdx.pong.gameobjects.Ball;
+import com.mygdx.pong.gameobjects.Paddle;
 
 import java.util.ArrayList;
 import java.util.List;
