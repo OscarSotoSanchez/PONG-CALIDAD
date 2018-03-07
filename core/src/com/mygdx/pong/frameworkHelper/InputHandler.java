@@ -1,12 +1,12 @@
-package com.mygdx.pong.FrameworkHelper;
+package com.mygdx.pong.frameworkHelper;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.pong.GameLoop.GameWorld;
-import com.mygdx.pong.GameObjects.Ball;
-import com.mygdx.pong.GameObjects.Paddle;
+import com.mygdx.pong.gameLoop.GameWorld;
+import com.mygdx.pong.gameObjects.Ball;
+import com.mygdx.pong.gameObjects.Paddle;
 
 
 public class InputHandler implements InputProcessor, GestureDetector.GestureListener {
@@ -44,42 +44,33 @@ public class InputHandler implements InputProcessor, GestureDetector.GestureList
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 
         if (Gdx.input.isTouched(1)) {
-
             Ball b = new Ball((int) myPaddle.getX(), (int) myPaddle.getY(), 2, screenHeight, screenWidth);
             b.setBullet(true);
             b.setVelocity(new Vector2(1000, 0));
             world.setBullet(b);
-
         }
-
 
         return true;
     }
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-
-
         if (!Gdx.input.isTouched(1) && button == 0) {
             this.myPaddle.setY(screenY);
             this.myPaddle.setX(screenX);
         }
-        return true;
 
+        return true;
     }
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-
-
         return true;
     }
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-
         return false;
-
     }
 
     @Override
@@ -94,7 +85,6 @@ public class InputHandler implements InputProcessor, GestureDetector.GestureList
 
     @Override
     public boolean tap(float x, float y, int count, int button) {
-
         return true;
     }
 

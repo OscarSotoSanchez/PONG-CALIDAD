@@ -6,30 +6,20 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 
 public class GameOverScreen implements Screen {
-
 
     BitmapFont font;
 
     private float screenWidth;
     private float screenHeight;
 
-
     public GameOverScreen(Game game) {
-
         screenWidth = Gdx.graphics.getWidth();
         screenHeight = Gdx.graphics.getHeight();
         create();
         render();
-
-
     }
 
     public void create() {
@@ -40,18 +30,15 @@ public class GameOverScreen implements Screen {
         OrthographicCamera cam = new OrthographicCamera();
         cam.setToOrtho(true, screenWidth, screenHeight);
 
-
         //el batcher permite renderizar objetos separados de la renderizacion global
         SpriteBatch batcher = new SpriteBatch();
         batcher.setProjectionMatrix(cam.combined);
-
 
         batcher.begin();
         //draw background, objects, etc.
 
         font.draw(batcher, "ENHORABUENA HAS GANADO!", 10, 10);
         batcher.end();
-
     }
 
     @Override

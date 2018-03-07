@@ -1,7 +1,6 @@
-package com.mygdx.pong.GameObjects;
+package com.mygdx.pong.gameObjects;
 
 import com.badlogic.gdx.math.Vector2;
-
 
 public class Ball {
     private Vector2 position;
@@ -15,7 +14,6 @@ public class Ball {
 
 
     //metodos
-
     public Ball(int x, int y, int size, int screenHeight, int screenWidth) {
         this.position = new Vector2(x, y);
         this.velocity = new Vector2(110, 110);
@@ -54,34 +52,28 @@ public class Ball {
     }
 
     public void update(float delta) {
-
-
-
-
-        if ((this.position.y > 0)) {
+        if (this.position.y > 0) {
             if (this.velocity.y < 0) {
                 position.add(velocity.cpy().scl(delta));
             }
         } else {
             this.position.y = screenHeight;
             this.velocity.y = -this.velocity.y;
-
             position.add(velocity.cpy().scl(delta));
         }
 
 
-        if ((this.position.x > 0)) {
+        if (this.position.x > 0) {
             if (this.velocity.x < 0) {
                 position.add(velocity.cpy().scl(delta));
             }
         } else {
             this.position.x = screenWidth;
             this.velocity.x = -this.velocity.x;
-
             position.add(velocity.cpy().scl(delta));
         }
 
-        if ((this.position.y + this.size < this.screenHeight)) {
+        if ((this.position.y + this.size) < this.screenHeight) {
             if (this.velocity.y > 0) {
                 position.add(velocity.cpy().scl(delta));
             }
@@ -91,10 +83,9 @@ public class Ball {
                 this.isCube = !this.isCube;
                 position.add(velocity.cpy().scl(delta));
             }
-
         }
 
-        if ((this.position.x + this.size < this.screenWidth)) {
+        if ((this.position.x + this.size) < this.screenWidth) {
             if (this.velocity.x > 0) {
                 position.add(velocity.cpy().scl(delta));
             }
@@ -106,14 +97,12 @@ public class Ball {
             } else {
                 impacted = false;
             }
-
         }
     }
 
     public void setVelocity(Vector2 velocity) {
         this.velocity = velocity;
     }
-
 
     public boolean isBullet() {
         return isBullet;
@@ -128,7 +117,6 @@ public class Ball {
     }
 
     public void collider() {
-
         this.velocity.x = -this.velocity.x;
         this.velocity.y = -this.velocity.y;
     }
