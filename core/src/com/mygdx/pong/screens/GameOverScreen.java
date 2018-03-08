@@ -43,36 +43,36 @@ public class GameOverScreen implements Screen {
 
     @Override
     public void show() {
-
+        //Override but not used
     }
 
     @Override
     public void render(float delta) {
-
+        //Override but not used
     }
 
     @Override
     public void resize(int width, int height) {
-
+        //Override but not used
     }
 
     @Override
     public void pause() {
-
+        //Override but not used
     }
 
     @Override
     public void resume() {
-
+        //Override but not used
     }
 
     @Override
     public void hide() {
-
+        //Override but not used
     }
 
     @Override
     public void dispose() {
-
+        //Override but not used
     }
 }

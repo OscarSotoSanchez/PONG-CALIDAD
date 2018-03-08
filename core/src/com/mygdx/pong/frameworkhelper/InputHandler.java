@@ -119,6 +119,6 @@ public class InputHandler implements InputProcessor, GestureDetector.GestureList
 
     @Override
     public void pinchStop() {
-
+        //Override but not used
     }
 }

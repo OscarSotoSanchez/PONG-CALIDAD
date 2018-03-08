@@ -31,27 +31,27 @@ public class GameScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
-
+        //Override but not used
     }
 
     @Override
     public void show() {
-
+        //Override but not used
     }
 
     @Override
     public void hide() {
-        Gdx.app.log("GameScreen", "hide called");
+        //Override but not used
     }
 
     @Override
     public void pause() {
-        Gdx.app.log("GameScreen", "pause called");
+        //Override but not used
     }
 
     @Override
     public void resume() {
-        Gdx.app.log("GameScreen", "resume called");
+        //Override but not used
     }
 
     @Override
