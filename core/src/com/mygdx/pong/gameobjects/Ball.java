@@ -52,32 +52,11 @@ public class Ball {
     }
 
     public void update(float delta) {
-        if (this.position.y > 0) {
-            if (this.velocity.y < 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        } else {
-            this.position.y = screenHeight;
-            this.velocity.y = -this.velocity.y;
-            position.add(velocity.cpy().scl(delta));
-        }
+        if(this.getX() >= this.screenWidth){
+            this.setX((int)this.getX() - this.screenWidth);
+        } else if(this.getX() <= 0){
+            this.setX((int)this.getX() + this.screenWidth);
 
-
-        if (this.position.x > 0) {
-            if (this.velocity.x < 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        } else {
-            this.position.x = screenWidth;
-            this.velocity.x = -this.velocity.x;
-            position.add(velocity.cpy().scl(delta));
-        }
-
-        if ((this.position.y + this.size) < this.screenHeight) {
-            if (this.velocity.y > 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        } else {
             if (!isBullet) {
                 this.position.y = 0;
                 this.isCube = !this.isCube;
@@ -85,11 +64,11 @@ public class Ball {
             }
         }
 
-        if ((this.position.x + this.size) < this.screenWidth) {
-            if (this.velocity.x > 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
-        } else {
+        if(this.getY() >= this.screenHeight){
+            this.setY((int)this.getY() - this.screenHeight);
+        } else if(this.getY() <= 0){
+            this.setY((int)this.getY() + this.screenHeight);
+
             if (!isBullet) {
                 this.position.x = 0;
                 this.isCube = !this.isCube;
@@ -98,6 +77,8 @@ public class Ball {
                 impacted = false;
             }
         }
+
+        position.add(velocity.cpy().scl(delta));
     }
 
     public void setVelocity(Vector2 velocity) {
