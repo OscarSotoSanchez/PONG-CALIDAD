@@ -32,16 +32,12 @@ public class Paddle {
     }
 
     public void update(float delta) {
-        if ((this.position.y > 0)) {
-            if (this.velocity.y < 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
+        if ((this.position.y > 0) && (this.velocity.y < 0) ) {
+            position.add(velocity.cpy().scl(delta));
         }
 
-        if ((this.position.y + this.height < this.screenHeight)) {
-            if (this.velocity.y > 0) {
-                position.add(velocity.cpy().scl(delta));
-            }
+        if ((this.position.y + this.height < this.screenHeight) &&(this.velocity.y > 0)) {
+            position.add(velocity.cpy().scl(delta));
         }
     }
 

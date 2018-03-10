@@ -12,10 +12,8 @@ public class GameScreen implements Screen {
     private GameWorld world;
     private GameRenderer renderer;
 
-    private Game game;
 
     public GameScreen(Game game) {
-        this.game = game;
         float screenWidth = Gdx.graphics.getWidth();
         float screenHeight = Gdx.graphics.getHeight();
         world = new GameWorld((int) screenWidth, (int) screenHeight, game);

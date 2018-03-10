@@ -1,6 +1,6 @@
 package com.mygdx.pong.screens;
 
-import com.badlogic.gdx.Game;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -15,7 +15,7 @@ public class GameOverScreen implements Screen {
     private float screenWidth;
     private float screenHeight;
 
-    public GameOverScreen(Game game) {
+    public GameOverScreen() {
         screenWidth = Gdx.graphics.getWidth();
         screenHeight = Gdx.graphics.getHeight();
         create();
