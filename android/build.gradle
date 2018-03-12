@@ -117,7 +117,14 @@ task updateBranch_Compile_Push(
     commitFiles.mustRunAfter build
     pushToCurrentBranch.mustRunAfter commitFiles
 }
-
+/*
+task compileAndSonar(
+        group: "Sonar",
+        description: "Compile and launch sonar analiysis",
+        dependsOn: ['build', 'sonarqube']) {
+    project.tasks["::sonarqube"].dependsOn "build"
+}
+*/
 // sets up the Android Eclipse project, using the old Ant based build.
 eclipse {
     // need to specify Java source sets explicitly, SpringSource Gradle Eclipse plugin
@@ -171,3 +178,5 @@ idea {
         }
     }
 }
+
+task('sonarqube').dependsOn build
