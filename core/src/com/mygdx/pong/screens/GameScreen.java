@@ -21,6 +21,11 @@ public class GameScreen implements Screen {
         Gdx.input.setInputProcessor(new InputHandler(world, world.getPaddle1(), (int) screenWidth, (int) screenHeight));
     }
 
+    public GameScreen(GameWorld world, GameRenderer renderer) {
+        this.world = world;
+        this.renderer = renderer;
+    }
+
     @Override
     public void render(float delta) {
         world.update(delta);
@@ -55,5 +60,13 @@ public class GameScreen implements Screen {
     @Override
     public void dispose() {
         // Leave blank
+    }
+
+    public GameWorld getWorld() {
+        return world;
+    }
+
+    public GameRenderer getRenderer() {
+        return renderer;
     }
 }

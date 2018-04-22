@@ -31,6 +31,12 @@ public class GameRenderer {
         shapeRenderer.setProjectionMatrix(cam.combined);
     }
 
+    public GameRenderer(GameWorld myWorld, OrthographicCamera cam, ShapeRenderer shapeRenderer, SpriteBatch batcher) {
+        this.myWorld = myWorld;
+        this.cam = cam;
+        this.shapeRenderer = shapeRenderer;
+        this.batcher = batcher;
+    }
 
     public void render() {
         Gdx.gl.glClearColor(0, 0, 0, 1);

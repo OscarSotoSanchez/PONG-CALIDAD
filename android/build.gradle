@@ -180,3 +180,12 @@ idea {
 }
 
 task('sonarqube').dependsOn build
+
+dependencies {
+    compile 'junit:junit:4.12'
+    compile "io.cucumber:cucumber-java:2.4.0"
+    compile 'io.cucumber:cucumber-junit:2.3.1'
+    compile 'org.mockito:mockito-core:2.12.0'
+    androidTestCompile 'org.mockito:mockito-android:2.7.22'
+
+}

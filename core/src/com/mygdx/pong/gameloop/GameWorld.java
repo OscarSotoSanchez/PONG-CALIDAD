@@ -48,6 +48,70 @@ public class GameWorld {
         ball = new Ball(screenWidth / 2, screenHeight / 2, 6, this.screenHeight, this.screenWidth);
     }
 
+    public int getScreenWidth() {
+        return screenWidth;
+    }
+
+    public void setScreenWidth(int screenWidth) {
+        this.screenWidth = screenWidth;
+    }
+
+    public int getScreenHeight() {
+        return screenHeight;
+    }
+
+    public void setScreenHeight(int screenHeight) {
+        this.screenHeight = screenHeight;
+    }
+
+    public boolean isImpacted() {
+        return impacted;
+    }
+
+    public void setImpacted(boolean impacted) {
+        this.impacted = impacted;
+    }
+
+    public List<Paddle> getPaddleList() {
+        return paddleList;
+    }
+
+    public void setPaddleList(List<Paddle> paddleList) {
+        this.paddleList = paddleList;
+    }
+
+    public List<Color> getBallColors() {
+        return ballColors;
+    }
+
+    public void setBallColors(List<Color> ballColors) {
+        this.ballColors = ballColors;
+    }
+
+    public int getColorNumber() {
+        return colorNumber;
+    }
+
+    public void setColorNumber(int colorNumber) {
+        this.colorNumber = colorNumber;
+    }
+
+    public int getVidas() {
+        return vidas;
+    }
+
+    public void setVidas(int vidas) {
+        this.vidas = vidas;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
     public void restart(int screenWidth, int screenHeight) {
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
@@ -72,6 +136,10 @@ public class GameWorld {
 
     public Color getColors() {
         return colors;
+    }
+
+    public void setColors(Color colors) {
+        this.colors = colors;
     }
 
     public void update(float delta) {
@@ -127,12 +195,24 @@ public class GameWorld {
         return paddleList;
     }
 
+    public void setPaddle(Paddle paddle) {
+        this.paddle = paddle;
+    }
+
     public Ball getBall() {
         return ball;
     }
 
+    public void setBall(Ball ball) {
+        this.ball = ball;
+    }
+
     public Paddle getPaddle1() {
         return paddle1;
+    }
+
+    public void setPaddle1(Paddle paddle1) {
+        this.paddle1 = paddle1;
     }
 
     public Ball getBullet() {
@@ -147,5 +227,8 @@ public class GameWorld {
         vidas--;
     }
 
+    public void shootBullet() {
+
+    }
 }
 
