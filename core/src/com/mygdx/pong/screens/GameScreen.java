@@ -18,7 +18,10 @@ public class GameScreen implements Screen {
         float screenHeight = Gdx.graphics.getHeight();
         world = new GameWorld((int) screenWidth, (int) screenHeight, game);
         renderer = new GameRenderer(world, (int) screenWidth, (int) screenHeight);
-        Gdx.input.setInputProcessor(new InputHandler(world, world.getPaddle1(), (int) screenWidth, (int) screenHeight));
+    }
+
+    private void setInputProcessor(int screenWidth, int screenHeight) {
+        Gdx.input.setInputProcessor(new InputHandler(world, world.getPaddle1(), screenWidth, screenHeight));
     }
 
     public GameScreen(GameWorld world, GameRenderer renderer) {

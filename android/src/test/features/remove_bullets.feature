@@ -1,6 +1,6 @@
 Feature:Reduce bullet counter when player shots
 
-  Scenario:In a play game
+  Scenario :In a play game
     Given The match isn't finished
     And The player has <x> shots remaining
     When The player touch the screen with two fingers

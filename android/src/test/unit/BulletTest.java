@@ -2,6 +2,7 @@ package test.unit;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics;
+import com.mygdx.pong.frameworkhelper.InputHandler;
 import com.mygdx.pong.game.GamePong;
 import com.mygdx.pong.gameloop.GameWorld;
 import com.mygdx.pong.screens.GameScreen;
@@ -27,6 +28,8 @@ public class BulletTest {
         Mockito.when(graphicsMock.getWidth()).thenReturn(screenWidth);
         Mockito.when(graphicsMock.getHeight()).thenReturn(screenHeight);
 
+        InputHandler inputHandlerMock = Mockito.mock(InputHandler.class);
+        Mockito.when(gdxMock.input.getInputProcessor()).thenReturn(inputHandlerMock);
 
         GamePong game = new GamePong();
         game.create();

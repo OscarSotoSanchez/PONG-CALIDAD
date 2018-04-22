@@ -21,14 +21,21 @@ public class GameRenderer {
     public GameRenderer(GameWorld world, int screenWidth, int screenHeight) {
         myWorld = world;
         cam = new OrthographicCamera();
-        cam.setToOrtho(true, screenWidth, screenHeight);
 
         //el batcher permite renderizar objetos separados de la renderizacion global
+    }
+
+    private void setupRenderer() {
         this.batcher = new SpriteBatch();
         this.batcher.setProjectionMatrix(cam.combined);
 
         shapeRenderer = new ShapeRenderer();
         shapeRenderer.setProjectionMatrix(cam.combined);
+    }
+
+
+    private void setupCamera(int screenWidth, int screenHeight) {
+        cam.setToOrtho(true, screenWidth, screenHeight);
     }
 
     public GameRenderer(GameWorld myWorld, OrthographicCamera cam, ShapeRenderer shapeRenderer, SpriteBatch batcher) {
